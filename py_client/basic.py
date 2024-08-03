@@ -4,10 +4,17 @@ import requests
 #endpoint = "https://httpbin.org/anything" 
 endpoint = "http://localhost:8000/api/" 
 
-response = requests.get(endpoint, params={"address": "Pundag Road, 84002"}, json={"query": "Hello World!"})
+json = {
+    "title": "Hello World", 
+    "content": "content",
+    "price": "ddfdf34.5",
+    # "price": 234.54,
+}
+
+response = requests.post(endpoint, json=json)
 # print(response.text)
+print(response.status_code)
 print(response.json()) 
-# print(response.status_code)
 
 # HTTP Request -> HTML 
 # REST API HTTP Request -> JSON 
